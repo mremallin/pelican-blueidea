@@ -13,6 +13,15 @@
     <div class="entry-content">
       {% include 'article_infos.html' %}
       {{ article.content }}
+      {% if article.gallery %}
+        <div class="gallery">
+          <ul>
+          {% for picture in article.gallery %}
+            <a class="image-box" href="{{ picture.url }}" rel="None" title="{{ picture.description }}"><img src="{{ picture.url | thumbnail('_x100') }}" title="{{ picture.description }}"></a>
+          {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </div><!-- /.entry-content -->
     {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
     <div class="comments">

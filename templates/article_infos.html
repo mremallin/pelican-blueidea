@@ -9,4 +9,7 @@
 {% include 'taglist.html' %}
 {% import 'translations.html' as translations with context %}
 {{ translations.translations_for(article) }}
+{% if article.logo %}
+  <p><img alt="Logo" class="post-info-logo" src="{{ article.logo | thumbnail('_x400') }}"/></p>
+{% endif %}
 </footer><!-- /.post-info -->
